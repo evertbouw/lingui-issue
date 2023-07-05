@@ -1,10 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { i18n } from "@lingui/core";
+import { I18nProvider } from "@lingui/react";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+const locale = "nl";
+// const locale = "en";
+
+const { messages } = await import(`./locales/${locale}.po`);
+
+i18n.loadAndActivate({ locale, messages });
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <I18nProvider i18n={i18n}>
+      <App />
+    </I18nProvider>
+  </React.StrictMode>
+);
