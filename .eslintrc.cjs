@@ -1,3 +1,4 @@
+/** @type {import("eslint").ESLint.ConfigData} */
 module.exports = {
   env: { browser: true, es2020: true },
   extends: [
@@ -11,4 +12,5 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
   },
+  ignorePatterns: ['*.cjs', '*.config.ts'],
 }
