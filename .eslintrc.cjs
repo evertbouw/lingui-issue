@@ -8,7 +8,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
   ],
   ignorePatterns: ["dist", "*.cjs", "*.config.*"],
   parser: "@typescript-eslint/parser",
@@ -17,6 +17,11 @@ module.exports = {
     sourceType: "module",
     project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
   plugins: ["react-refresh", "lingui"],
   rules: {
@@ -29,7 +34,7 @@ module.exports = {
     "lingui/no-single-variables-to-translate": 2,
     "lingui/no-expression-in-message": 2,
     "lingui/no-single-tag-to-translate": 2,
-    "lingui/no-trans-inside-trans": 2
+    "lingui/no-trans-inside-trans": 2,
     // "lingui/text-restrictions": [
     //   2,
     //   {
