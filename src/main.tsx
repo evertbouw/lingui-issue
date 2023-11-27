@@ -8,14 +8,14 @@ import "./index.css";
 const locale = "nl";
 // const locale = "en";
 
-const { messages } = await import(`./locales/${locale}.po`);
+import(`./locales/${locale}.po`).then(({ messages }) => {
+  i18n.loadAndActivate({ locale, messages });
 
-i18n.loadAndActivate({ locale, messages });
-
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <I18nProvider i18n={i18n}>
-      <App />
-    </I18nProvider>
-  </React.StrictMode>
-);
+  ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+    <React.StrictMode>
+      <I18nProvider i18n={i18n}>
+        <App />
+      </I18nProvider>
+    </React.StrictMode>
+  );
+});
