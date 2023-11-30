@@ -9,7 +9,7 @@ import { isDefined } from "./isDefined.ts";
 
 const locale = "en";
 
-const { messages } = (await import(`./locales/${locale}.po`)) as {
+const { messages } = (await import(/* @vite-ignore */ `/src/locales/${locale}.po`)) as {
   messages: Messages;
 };
 
